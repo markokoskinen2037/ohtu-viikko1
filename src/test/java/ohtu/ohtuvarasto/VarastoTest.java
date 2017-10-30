@@ -65,4 +65,56 @@ public class VarastoTest {
         assertEquals(4, varasto.paljonkoMahtuu(), vertailuTarkkuus);
     }
 
+    @Test
+    public void kayttokelvotonvarastoTunnistetaan() {
+        Varasto testivarasto = new Varasto(-1);
+        assertEquals(0, testivarasto.getTilavuus(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void varastonTilavuusAsetetaanOikein() {
+        Varasto testivarasto = new Varasto(2, 2);
+        assertEquals(testivarasto.getTilavuus(), 2, vertailuTarkkuus);
+    }
+
+    @Test
+    public void varastonTilavuusttaEiAsetetaJosNegatiivinen() {
+        Varasto testivarasto = new Varasto(-2, 2);
+        assertEquals(testivarasto.getTilavuus(), 0, vertailuTarkkuus);
+    }
+    
+    @Test
+    public void alkusaldoAsetetaanOikein(){
+        Varasto testivarasto = new Varasto(2, -1);
+        assertEquals(varasto.getSaldo(),0, vertailuTarkkuus);
+    }
+    
+    @Test
+    public void lisaaminenToimiiNegatiivisilla(){
+        varasto.lisaaVarastoon(-2);
+        assertEquals(varasto.getTilavuus(),10,vertailuTarkkuus);
+    }
+    
+    @Test
+    public void varastoTäyttyyRajaanAsti(){
+        varasto.lisaaVarastoon(1000);
+        assertEquals(varasto.getSaldo(),10,vertailuTarkkuus);
+    }
+    
+    @Test 
+    public void negatiivinenOttoToimii(){
+        varasto.otaVarastosta(-1);
+        assertEquals(varasto.getSaldo(), 0,vertailuTarkkuus);
+    }
+    
+    @Test
+    public void otetaanKaikkiMitäVoi(){
+        assertEquals(varasto.otaVarastosta(10000), 0, vertailuTarkkuus);
+    }
+    
+    @Test
+    public void toStringToimii(){
+        assertEquals(varasto.toString(), "saldo = 0.0, vielä tilaa 10.0");
+    }
+
 }
