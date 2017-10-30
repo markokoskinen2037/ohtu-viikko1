@@ -1,0 +1,6 @@
+# tmp-tiedostot
+*.tmp
+
+# Build kansion sis?lt?
+/build
+
