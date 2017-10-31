@@ -4,3 +4,5 @@
 # Build kansion sis?lt?
 /build
 
+/RiippuvuuksienInjektointi1/.nb-gradle/
+/RiippuvuuksienInjektointi1/build/
