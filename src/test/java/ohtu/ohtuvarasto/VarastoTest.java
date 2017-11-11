@@ -1,14 +1,8 @@
 package ohtu.ohtuvarasto;
 
-import org.junit.*;
 import static org.junit.Assert.*;
-
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class VarastoTest {
 
@@ -82,38 +76,38 @@ public class VarastoTest {
         Varasto testivarasto = new Varasto(-2, 2);
         assertEquals(testivarasto.getTilavuus(), 0, vertailuTarkkuus);
     }
-    
+
     @Test
-    public void alkusaldoAsetetaanOikein(){
+    public void alkusaldoAsetetaanOikein() {
         Varasto testivarasto = new Varasto(2, -1);
-        assertEquals(varasto.getSaldo(),0, vertailuTarkkuus);
+        assertEquals(varasto.getSaldo(), 0, vertailuTarkkuus);
     }
-    
+
     @Test
-    public void lisaaminenToimiiNegatiivisilla(){
+    public void lisaaminenToimiiNegatiivisilla() {
         varasto.lisaaVarastoon(-2);
-        assertEquals(varasto.getTilavuus(),10,vertailuTarkkuus);
+        assertEquals(varasto.getTilavuus(), 10, vertailuTarkkuus);
     }
-    
+
     @Test
-    public void varastoTäyttyyRajaanAsti(){
+    public void varastoTäyttyyRajaanAsti() {
         varasto.lisaaVarastoon(1000);
-        assertEquals(varasto.getSaldo(),10,vertailuTarkkuus);
+        assertEquals(varasto.getSaldo(), 10, vertailuTarkkuus);
     }
-    
-    @Test 
-    public void negatiivinenOttoToimii(){
-        varasto.otaVarastosta(-1);
-        assertEquals(varasto.getSaldo(), 0,vertailuTarkkuus);
-    }
-    
+
     @Test
-    public void otetaanKaikkiMitäVoi(){
+    public void negatiivinenOttoToimii() {
+        varasto.otaVarastosta(-1);
+        assertEquals(varasto.getSaldo(), 0, vertailuTarkkuus);
+    }
+
+    @Test
+    public void otetaanKaikkiMitäVoi() {
         assertEquals(varasto.otaVarastosta(10000), 0, vertailuTarkkuus);
     }
-    
+
     @Test
-    public void toStringToimii(){
+    public void toStringToimii() {
         assertEquals(varasto.toString(), "saldo = 0.0, vielä tilaa 10.0");
     }
 
