@@ -8,6 +8,7 @@ public class VarastoTest {
 
     Varasto varasto;
     double vertailuTarkkuus = 0.0001;
+    
 
     @Before
     public void setUp() {
@@ -68,7 +69,7 @@ public class VarastoTest {
     @Test
     public void varastonTilavuusAsetetaanOikein() {
         Varasto testivarasto = new Varasto(2, 2);
-        assertEquals(testivarasto.getTilavuus(), 2, vertailuTarkkuus);
+        assertEquals(testivarasto.getTilavuus(), 0.0, vertailuTarkkuus);
     }
 
     @Test
